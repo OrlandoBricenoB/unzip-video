@@ -1,5 +1,7 @@
 # Unzip Video
 
+![Previsualización](https://raw.githubusercontent.com/OrlandoBricenoB/unzip-video/main/preview/preview.png)
+
 ## Descripción
 
 Este proyecto fue desarrollador con la inteción de descomprimir automáticamente varios archivos zip en la misma carpeta y sacar únicamente los archivos de vídeo dentro de ella.
