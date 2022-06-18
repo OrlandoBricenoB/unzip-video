@@ -1,0 +1,27 @@
+{
+  "name": "unzip-video",
+  "version": "1.0.0",
+  "description": "Un CLI para descomprimir un zip y sacar de su contenido los archivos de vídeo hacia la carpeta del proceso.",
+  "main": "bin/index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "bin": {
+    "unz": "./bin/index.mjs"
+  },
+  "author": "Jo-Sword",
+  "license": "ISC",
+  "dependencies": {
+    "boxen": "^7.0.0",
+    "chalk": "^5.0.1",
+    "express": "^4.18.1",
+    "unzipper": "^0.10.11",
+    "yesno": "^0.3.1"
+  },
+  "devDependencies": {
+    "standard": "^17.0.0"
+  }
+}
