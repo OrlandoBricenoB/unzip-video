@@ -34,9 +34,6 @@ import { listFiles, unzip } from './helpers/handleFiles.mjs'
 
 // * Iniciar el proceso.
 const startUnzip = async (currentPath) => {
-  // * Guardar fecha de inicio.
-  const startAt = Date.now()
-
   // * Obtener los archivos .zip de este directorio.
   const zips = await listFiles(currentPath)
 
@@ -54,6 +51,9 @@ const startUnzip = async (currentPath) => {
       process.exit(1)
     }
   })
+
+  // * Guardar fecha de inicio.
+  const startAt = Date.now()
 
   // * Recorrer cada zip.
   for (const zip of zips) {
