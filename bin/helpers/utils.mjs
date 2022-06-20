@@ -3,7 +3,7 @@ import chalk from 'chalk'
 
 export const boxenMessage = message => {
   const options = {
-    padding: .5,
+    padding: 0.5,
     borderColor: '#21c2e1',
     dimBorder: true,
     title: 'Éxito'
