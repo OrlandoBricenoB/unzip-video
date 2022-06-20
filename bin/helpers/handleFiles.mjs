@@ -33,9 +33,12 @@ export const unzip = async ({
   deleteZip,
   increaseCountFiles
 }) => {
+  // * Ruta del zip
+  const zipPath = path.join(currentPath, zip)
+
   // * Leer zip.
   const readableZip = fs
-    .createReadStream(path.join(currentPath, zip))
+    .createReadStream(zipPath)
     .pipe(unzipper.Parse({ forceStream: true }))
 
   // * Recorrer cada archivo dentro del zip.
@@ -49,27 +52,28 @@ export const unzip = async ({
     // * Obtener el formato del archivo.
     const format = fileName.split('.').pop()
 
-    // * Guardar el archivo en la carpeta raíz si es un vídeo.
+    // * Si es un vídeo, guardar el archivo en la carpeta raíz.
     if (format === 'mp4' || format === 'mkv') {
+      // * Almacenar la ruta del archivo.
+      const filePath = path.join(currentPath, fileName)
+
       // * Incrementar contador de archivos.
       increaseCountFiles()
 
       // * Guardar el archivo.
-      entry.pipe(fs.createWriteStream(path.join(currentPath + '/', fileName)))
+      entry.pipe(fs.createWriteStream(filePath))
 
-      // * Si el usuario pidió eliminar los zips, hacerlo:
+      // * Opción de usuario: Eliminar los archivos comprimidos.
       if (deleteZip) {
-        fs.unlink(path.join(currentPath, zip), err => {
+        fs.unlink(zipPath, err => {
           if (err) {
             console.log('Hubo un error eliminando ' + zip)
           }
         })
       }
-      return true
     // * Si no, ignorar este archivo (entry).
     } else {
       entry.autodrain()
     }
   }
-  return false
 }
