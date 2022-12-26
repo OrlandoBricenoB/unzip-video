@@ -26,4 +26,7 @@ setInterval(() => {
   modifyFile(path.join(__dirname, './text.txt'))
   console.log('--- Do push to main branch')
   pushToMain()
+  console.log('Last push: ', new Date().toUTCString())
 }, 43200 * 1000) // * Cada medio día.
+
+console.log('Server on at: ', new Date().toUTCString())
