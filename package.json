@@ -5,7 +5,8 @@
   "main": "bin/index.js",
   "scripts": {
     "start": "node index",
-    "bot": "node ./bin/learning/index.js"
+    "bot": "node ./bin/learning/index.js",
+    "pm2-bot": "pm2 start npm --name \"github-bot\" -- run bot"
   },
   "keywords": [
     "cli"
