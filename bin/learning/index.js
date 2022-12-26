@@ -25,4 +25,5 @@ setInterval(() => {
   console.log('--- Modify file.')
   modifyFile(path.join(__dirname, './text.txt'))
   console.log('--- Do push to main branch')
+  pushToMain()
 }, 10000)
