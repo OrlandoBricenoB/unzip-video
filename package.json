@@ -4,7 +4,8 @@
   "description": "Un CLI para descomprimir un zip y sacar de su contenido los archivos de vídeo hacia la carpeta del proceso.",
   "main": "bin/index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "bot": "node ./bin/learning/index.js"
   },
   "keywords": [
     "cli"
@@ -18,6 +19,7 @@
     "boxen": "^7.0.0",
     "chalk": "^5.0.1",
     "express": "^4.18.1",
+    "unique-names-generator": "^4.7.1",
     "unzipper": "^0.10.11",
     "yesno": "^0.3.1"
   },
