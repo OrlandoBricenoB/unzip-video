@@ -5,6 +5,10 @@ import yesno from 'yesno'
 import { boxenMessage } from './helpers/utils.mjs'
 import { listFiles, unzip } from './helpers/handleFiles.mjs'
 
+const yesValues = [
+  's', 'si', 'y', 'yes'
+];
+
 // * Consultar si desea hacerlo en la ubicación actual.
 (async () => {
   // * Obtener la carpeta desde donde se ejecutó el CLI.
@@ -16,11 +20,9 @@ import { listFiles, unzip } from './helpers/handleFiles.mjs'
   // * Consultar al usuario si desea hacerlo en este directorio.
   const unzipInCurrent = await yesno({
     question: '¿Seguro que quieres descomprimir y obtener los vídeos?',
-    yesValues: [
-      's', 'si'
-    ],
+    yesValues,
     invalid: () => {
-      process.stdout.write('\nEsta respuesta es inválida, acepto:\nAceptar: s |si\nCancelar: n | no\n')
+      process.stdout.write('\nEsta respuesta es inválida, acepto:\nAceptar: s |si | y | yes\nCancelar: n | no\n')
       process.exit(1)
     },
     defaultValue: true
@@ -43,11 +45,9 @@ const startUnzip = async (currentPath) => {
   // * Consultar al usuario si desea eliminar los archivos comprimidos.
   const deleteZip = await yesno({
     question: '¿Desea eliminar los archivos comprimidos automáticamente?',
-    yesValues: [
-      's', 'si'
-    ],
+    yesValues,
     invalid: () => {
-      process.stdout.write('\nEsta respuesta es inválida, acepto:\nAceptar: s |si\nCancelar: n | no\n')
+      process.stdout.write('\nEsta respuesta es inválida, acepto:\nAceptar: s |si | y | yes\nCancelar: n | no\n')
       process.exit(1)
     }
   })

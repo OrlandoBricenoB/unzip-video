@@ -1,6 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import unzipper from 'unzipper'
+import AdmZip from 'adm-zip'
 const fsPromises = fs.promises
 
 export const listFiles = async (directoryPath) => {
@@ -35,6 +36,10 @@ export const unzip = async ({
 }) => {
   // * Ruta del zip
   const zipPath = path.join(currentPath, zip)
+
+  const zipFile = new AdmZip(zipPath, 'hackstore.ac')
+
+  console.log({ zipFile }, zipFile.getEntries().map(d => d.entryName))
 
   // * Leer zip.
   const readableZip = fs

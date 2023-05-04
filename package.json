@@ -17,6 +17,7 @@
   "author": "Jo-Sword",
   "license": "ISC",
   "dependencies": {
+    "adm-zip": "^0.5.10",
     "boxen": "^7.0.0",
     "chalk": "^5.0.1",
     "express": "^4.18.1",
